@@ -1,8 +1,33 @@
+@import './reset.css';
+
+@font-face {
+	font-family: 'PP Mondwest';
+	src: url('/fonts/pp-mondwest-regular.woff2') format('woff2'),
+		url('/fonts/pp-mondwest-regular.woff') format('woff');
+}
+
+@font-face {
+	font-family: 'Inconsolata';
+	src: url('/fonts/inconsolata-regular.woff2') format('woff2'),
+		url('/fonts/inconsolata-regular.woff') format('woff');
+}
+
 :root {
-  --clr-bg: #333333;
+	--clr-background: #171717;
+	--clr-accent: #615eff;
+
+	--font-mono: 'Inconsolata', monospace;
+	--font-heading: 'PP Mondwest', serif;
 }
 
 body {
-  margin: 0;
-  background-color: var(--clr-bg);
+	margin: 0;
+	background-color: var(--clr-background);
+	font-family: var(--font-mono);
+}
+
+h1,
+h2 {
+	font-family: var(--font-heading);
+	font-weight: 400;
 }
