@@ -1,0 +1,4 @@
+{
+	"cssvar.files": ["./node_modules/open-props/open-props.min.css", "src/styles/app.css"],
+	"cssvar.extensions": ["css", "svelte"]
+}
