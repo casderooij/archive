@@ -15,7 +15,9 @@
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "next",
 		"@sveltejs/kit": "next",
+		"@types/node": "^18.0.6",
 		"autoprefixer": "^10.4.7",
+		"date-fns": "^2.28.0",
 		"open-props": "^1.4.3",
 		"postcss": "^8.4.14",
 		"postcss-custom-media": "^8.0.2",

@@ -1,0 +1,46 @@
+[
+	{
+		"num_of_weeks": 3,
+		"weeks": [
+			{
+				"id": "28-2022",
+				"events": [
+					{
+						"repo": [514839548, "archive"],
+						"days": [7]
+					},
+					{
+						"repo": [509850465, "portfolio-v4"],
+						"days": [1, 2, 3, 4, 5]
+					}
+				]
+			},
+			{
+				"id": "27-2022",
+				"events": [
+					{
+						"repo": [509850465, "portfolio-v4"],
+						"days": [6, 7]
+					},
+					{
+						"repo": [509850465, "portfolio-v4"],
+						"days": [3, 4]
+					},
+					{
+						"repo": [509850465, "portfolio-v4"],
+						"days": [1]
+					}
+				]
+			},
+			{
+				"id": "26-2022",
+				"events": [
+					{
+						"repo": [509850465, "portfolio-v4"],
+						"days": [7]
+					}
+				]
+			}
+		]
+	}
+]
