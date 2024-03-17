@@ -1,0 +1,35 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+
+export async function getStaticPaths() {
+  const allActivities = await Astro.glob('./activities/**/*.md')
+
+  const uniqueTags = [
+    ...new Set(
+      allActivities.map((activity) => activity.frontmatter.tags).flat(),
+    ),
+  ]
+
+  return uniqueTags.map((tag) => {
+    const filteredActivities = allActivities.filter((activity) =>
+      activity.frontmatter.tags.includes(tag),
+    )
+
+    return {
+      params: { tag },
+      props: { activities: filteredActivities },
+    }
+  })
+}
+
+const { tag } = Astro.params
+const { activities } = Astro.props
+---
+
+<BaseLayout>
+  <h1 class="text-5xl">Tag: {tag}</h1>
+
+  <ul class="mt-10">
+    {activities.map((activity) => <li>{activity.frontmatter.title}</li>)}
+  </ul>
+</BaseLayout>
