@@ -1,7 +1,23 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro'
+
+const allActivities = await Astro.glob('./activities/**/*.md')
+
+const uniqueTags = [
+  ...new Set(allActivities.map((activity) => activity.frontmatter.tags).flat()),
+]
 ---
 
 <BaseLayout>
   <h1 class="text-5xl font-medium uppercase">Personal archive</h1>
+
+  <ul>
+    {
+      uniqueTags.map((tag) => (
+        <li>
+          <a href={`/${tag}`}>{tag}</a>
+        </li>
+      ))
+    }
+  </ul>
 </BaseLayout>
