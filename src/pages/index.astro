@@ -4,7 +4,12 @@ import BaseLayout from '../layouts/BaseLayout.astro'
 const allActivities = await Astro.glob('./activities/**/*.md')
 
 const uniqueTags = [
-  ...new Set(allActivities.map((activity) => activity.frontmatter.tags).flat()),
+  ...new Set(
+    allActivities
+      .map((activity) => activity.frontmatter.tags)
+      .flat()
+      .sort((a, b) => a.localeCompare(b)),
+  ),
 ]
 ---
 
