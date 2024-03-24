@@ -1,16 +1,22 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro'
+import { getCollection } from 'astro:content'
+import { Picture } from 'astro:assets'
 
-const allActivities = await Astro.glob('./activities/**/*.md')
+const allActivities = await getCollection('activities')
 
-const uniqueTags = [
-  ...new Set(
-    allActivities
-      .map((activity) => activity.frontmatter.tags)
-      .flat()
-      .sort((a, b) => a.localeCompare(b)),
-  ),
-]
+console.log(allActivities)
+
+// const featuredActivities = allActivities.slice(0, 3)
+
+// const uniqueTags = [
+//   ...new Set(
+//     allActivities
+//       .map((activity) => activity.frontmatter.tags)
+//       .flat()
+//       .sort((a, b) => a.localeCompare(b)),
+//   ),
+// ]
 ---
 
 <BaseLayout>
@@ -18,11 +24,21 @@ const uniqueTags = [
 
   <ul>
     {
+      allActivities.map((activity) => (
+        <li>
+          <Picture src={activity.data.cover} alt="" />
+        </li>
+      ))
+    }
+  </ul>
+
+  <!-- <ul>
+    {
       uniqueTags.map((tag) => (
         <li>
           <a href={`/${tag}`}>{tag}</a>
         </li>
       ))
     }
-  </ul>
+  </ul> -->
 </BaseLayout>
